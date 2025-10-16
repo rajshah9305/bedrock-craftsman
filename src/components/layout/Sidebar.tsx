@@ -15,9 +15,9 @@ export const Sidebar = () => {
     <aside className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col">
       <div className="p-6 border-b border-sidebar-border">
         <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-          Bedrock Studio
+          RAJ AI AGENT STUDIO
         </h1>
-        <p className="text-xs text-muted-foreground mt-1">Agent Management</p>
+        <p className="text-xs text-muted-foreground mt-1">Bedrock Agent Management</p>
       </div>
       
       <nav className="flex-1 p-4 space-y-1">

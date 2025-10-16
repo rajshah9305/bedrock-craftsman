@@ -30,12 +30,13 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => (
-          <Card key={stat.label} className="p-6 hover:shadow-elegant transition-all duration-300">
+          <Card key={stat.label} className="p-6 hover:shadow-elegant hover:border-primary/30 transition-all duration-300 border-2 border-border group">
             <div className="flex items-center justify-between mb-4">
-              <stat.icon className={`h-8 w-8 ${stat.color}`} />
-              <div className="p-2 rounded-lg bg-gradient-primary opacity-20" />
+              <div className="p-3 rounded-xl bg-gradient-primary/10 group-hover:bg-gradient-primary/20 transition-colors">
+                <stat.icon className={`h-7 w-7 ${stat.color}`} />
+              </div>
             </div>
-            <p className="text-3xl font-bold mb-1">{stat.value}</p>
+            <p className="text-3xl font-bold mb-1 bg-gradient-primary bg-clip-text text-transparent">{stat.value}</p>
             <p className="text-sm text-muted-foreground">{stat.label}</p>
           </Card>
         ))}

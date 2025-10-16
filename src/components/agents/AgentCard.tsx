@@ -13,19 +13,19 @@ interface AgentCardProps {
 }
 
 const statusColors = {
-  draft: "bg-muted text-muted-foreground",
-  active: "bg-success/20 text-success border-success/30",
-  inactive: "bg-muted text-muted-foreground",
-  deploying: "bg-warning/20 text-warning border-warning/30",
-  error: "bg-error/20 text-error border-error/30",
+  draft: "bg-muted text-muted-foreground border-border",
+  active: "bg-success/10 text-success border-success/50 font-medium",
+  inactive: "bg-muted text-muted-foreground border-border",
+  deploying: "bg-warning/10 text-warning border-warning/50 font-medium animate-pulse",
+  error: "bg-error/10 text-error border-error/50 font-medium",
 };
 
 export const AgentCard = ({ agent, onEdit, onToggle, onDelete }: AgentCardProps) => {
   return (
-    <Card className="p-6 hover:shadow-elegant transition-all duration-300 border-border bg-card">
+    <Card className="p-6 hover:shadow-elegant hover:border-primary/30 transition-all duration-300 border-2 border-border bg-card group">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-primary/10">
+          <div className="p-3 rounded-xl bg-gradient-primary/10 group-hover:bg-gradient-primary/20 transition-colors">
             <Bot className="h-6 w-6 text-primary" />
           </div>
           <div>

@@ -19,10 +19,10 @@ export const ModelSelector = ({ models, selectedModel, onSelect }: ModelSelector
           <Card
             key={model.id}
             className={cn(
-              "p-4 cursor-pointer transition-all duration-200 hover:shadow-elegant",
+              "p-5 cursor-pointer transition-all duration-300 hover:shadow-elegant border-2 group",
               isSelected
-                ? "border-primary bg-primary/5 shadow-elegant"
-                : "border-border hover:border-primary/50"
+                ? "border-primary bg-gradient-primary/5 shadow-elegant ring-2 ring-primary/20"
+                : "border-border hover:border-primary/40"
             )}
             onClick={() => onSelect(model)}
           >
