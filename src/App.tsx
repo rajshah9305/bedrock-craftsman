@@ -4,13 +4,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Sidebar } from "@/components/layout/Sidebar";
-import Dashboard from "./pages/Dashboard";
-import Agents from "./pages/Agents";
-import CreateAgent from "./pages/CreateAgent";
-import Knowledge from "./pages/Knowledge";
-import Tools from "./pages/Tools";
-import Settings from "./pages/Settings";
-import NotFound from "./pages/NotFound";
+import { lazy, Suspense } from "react";
+
+// Lazy load route components for code splitting
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Agents = lazy(() => import("./pages/Agents"));
+const CreateAgent = lazy(() => import("./pages/CreateAgent"));
+const Knowledge = lazy(() => import("./pages/Knowledge"));
+const Tools = lazy(() => import("./pages/Tools"));
+const Settings = lazy(() => import("./pages/Settings"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -18,7 +21,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
   <div className="flex min-h-screen w-full bg-background">
     <Sidebar />
     <main className="flex-1 p-8">
-      {children}
+      <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        {children}
+      </Suspense>
     </main>
   </div>
 );
